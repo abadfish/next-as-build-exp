@@ -1,0 +1,21 @@
+{
+  "name": "next-as-build-exp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:abadfish/next-as-build-exp.git",
+  "author": "me",
+  "license": "MIT",
+  "dependencies": {
+    "history": "^5.0.0",
+    "next": "^11.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
