@@ -17,5 +17,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-  }
+  },
+  "packageManager": "yarn@3.0.1-rc.2"
 }
