@@ -1,29 +1,29 @@
-import { server } from '../../../config'
+import {
+  useQuery,
+} from 'react-query'
+
+import { getTodos, postTodo } from '../../endpoints/todoActions'
 
 
-export async function getStaticProps() {
-  const res = await fetch(`${ server }/todos`)
-  const todos = await res.json()
+const Todos = () => {
 
-  if (!todos) {
-    return {
-      notFound: true,
-    }
-  }
-
-  return {
-    props: { todos }, 
-  }
-}
-
-
-const Todos = ({todos}) => {
+  const { isLoading, error, data, isFetching } = useQuery('todos', getTodos)
+  console.log(data)
+  
   return (
+    <div>
     <ul>
-      {todos.map((todo) => (
-        <li>{todo.title}</li>
-      ))}
-    </ul>
+        { data ? 
+        data.map(todo => (
+          <li key={todo.id}>{todo.title}</li>
+        ))
+        :
+        null}
+      </ul>
+      <div>{isFetching ? "Updating..." : ""}</div>
+      <div>{isLoading ? "Loading..." : ""}</div>
+      <div>{error ? "An error has occurred: " + error : ""}</div>
+    </div>
   )
 }
 
